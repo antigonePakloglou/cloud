@@ -35,9 +35,6 @@ Pour utiliser le culster Kubernetes mis à disposition on placera le fichier de 
 $ cp g2-kubeconfig.yml ../.kube/config
 ```
 
-#### Manifest odoo-erp.yaml
-On créer le manifest odoo-erp.yaml dans lequel on précise les 2 images que nous souhaitons lancer en simultanées.
-
 #### Création d'un namespace
 Bien que nous ayons un cluster pour chaque groupe on isolera nos groupe de ressources au sein de celui-ci.
 On commence par lancer minikube
@@ -53,4 +50,15 @@ On fait en sorte qu'il soit utilisé
 ```bash
 $ kubectl config set-context --current --namespace=ahmad-antigone
 ```
+
+#### Manifest odoo-erp.yaml
+On créer le manifest odoo-erp.yaml dans lequel on précise les 2 images que nous souhaitons lancer en simultanées.
+```bash
+$ kubectl create -f manifests/odoo-erp.yaml
+```
+On lance la commande pour nous  permettre de nous connecter à notre serveur Odoo
+```bash
+$ kubectl proxy
+```
+
 
