@@ -68,4 +68,17 @@ On est supposé pouvoir y accéder
 $ 127.0.0.1:8001
 ```
 
+#### Manifest odoo-service.yaml
+On crée un service qui va nous premettre d'accéder à nos pods qui sont des resssources éphemeres en permettant un accès durable.
+```bash
+ $ kubectl create -f manifests/odoo-service.yaml
+```
+
+
 On rencontre des difficultés pour se connecter à notre url. 
+Lorsqu'on regarde notre pod avec la commande ci dessous il est affiché en erreur.
+```bash
+$ kubectl get pod 
+```
+
+
