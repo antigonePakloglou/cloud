@@ -61,4 +61,7 @@ On lance la commande pour nous  permettre de nous connecter à notre serveur Odo
 $ kubectl proxy
 ```
 
-
+On est supposé pouvoir y accéder 
+```bash
+$ http://127.0.0.1:8001/api/v1/namespaces/ahmad-antigone/pods/odoo/proxy/
+```
