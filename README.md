@@ -29,6 +29,7 @@ On lance notre conteneur
 $ docker run -p 43000:8069 odoo:v1
 ```
 
+
 ## ☸️ Déploiement avec Kubernetes ☸️
 Pour utiliser le culster Kubernetes mis à disposition on placera le fichier de configuration en remplacement du fichier $HOME/.kube/config
 ```bash
@@ -36,4 +37,19 @@ $ cp g2-kubeconfig.yml ../.kube/config
 ```
 
 #### Manifest odoo-erp.yaml
-On créer le manifest odoo-erp.yaml das lequel on précise les 2 images que nous souhaitons lancer en simultanées
+On créer le manifest odoo-erp.yaml dans lequel on précise les 2 images que nous souhaitons lancer en simultanées.
+
+#### Création d'un namespace
+On commence par lancer minikube
+```bash 
+$ minikube start
+```
+
+On créer un namespace
+```bash
+$ kubectl create namespace ahmad-antigone
+```
+On fait en sorte qu'il soit utilisé
+```bash
+$ kubectl config set-context --current --namespace=ahmad-antigone
+```
