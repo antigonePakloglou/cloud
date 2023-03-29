@@ -67,3 +67,5 @@ On est supposé pouvoir y accéder
 ```bash
 $ 127.0.0.1:8001
 ```
+
+On rencontre des difficultés pour se connecter à notre url. 
