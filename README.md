@@ -80,5 +80,9 @@ Lorsqu'on regarde notre pod avec la commande ci dessous il est affiché en erreu
 ```bash
 $ kubectl get pod 
 ```
-
+Nous avons créer un service mais ca ne semble pas non plus etre focntionnel.
+On a tenter de lancer la commande ci dessous pour générer un service 
+```bash
+$ kubectl expose deployment odoo-erp --name=odoo-service --type=LoadBalancer --port 80 --target-port 8069
+```
 
