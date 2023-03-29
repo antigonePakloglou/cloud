@@ -29,26 +29,28 @@ On lance notre conteneur
 $ docker run -p 43000:8069 odoo:v1
 ```
 
+#### On publie notre image sur Docker Hub en public
+On se connecte à notre compte
+```bash
+$ docker login
+```
+On publie l'image "odoo" dans le repository 
+```bash
+$ docker tag odoo ahmad0/odoo-erp
+$ docker push ahmad0/odoo-erp
+```
+
+
 ## ☸️ Déploiement avec Kubernetes ☸️
 Pour utiliser le culster Kubernetes mis à disposition on placera le fichier de configuration en remplacement du fichier $HOME/.kube/config
 ```bash
 $ cp g2-kubeconfig.yml ../.kube/config
 ```
 
-#### Création d'un namespace
-Bien que nous ayons un cluster pour chaque groupe on isolera nos groupe de ressources au sein de celui-ci.
-On commence par lancer minikube
+#### Utilisation du cluster
+On utilise le cluser mis à disposition
 ```bash 
-$ minikube start
-```
-
-On créer un namespace
-```bash
-$ kubectl create namespace ahmad-antigone
-```
-On fait en sorte qu'il soit utilisé
-```bash
-$ kubectl config set-context --current --namespace=ahmad-antigone
+$ kubectl config use-context g2
 ```
 
 #### Manifest odoo-erp.yaml
@@ -63,5 +65,5 @@ $ kubectl proxy
 
 On est supposé pouvoir y accéder 
 ```bash
-$ http://127.0.0.1:8001/api/v1/namespaces/ahmad-antigone/pods/odoo/proxy/
+$ 
 ```
