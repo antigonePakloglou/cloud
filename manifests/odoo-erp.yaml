@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo
+  labels:
+    app: odoo
+    environment: ahmad-antigone
+spec:
+  containers:
+  - name: odoo
+    image: odoo:latest
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: html
+      mountPath: /usr/share/odoo/html
+  - name: postgres
+    image: postgres:latest
+    volumeMounts:
+    - name: html
+      mountPath: /html
+  volumes:
+  - name: html
+    emptyDir: {}
